@@ -1,8 +1,4 @@
-# gmusicchecker
-Checks Google Music library for missing songs
-
-# About
-
+# Overview
 This script checks your Google Music library for missing songs. At least for me, every few months I find songs missing from my library. It turns out that Google is constantly updating its catalog, and, in the process, removes older versions of songs from your library. However, it doesn't automatically add newer versions back to your library. This script creates a list of songs in your library on first run, and compares the original list and new list on subsequent runs to let you know which songs are missing.
 
 # Requirements
