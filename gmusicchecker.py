@@ -28,16 +28,19 @@ if not os.path.exists('library.txt'):
     f.close()
     print('No library.txt found. Creating a new one.')
 
-def update():
+# Old library
 
-    # Overwrites existing library with new library
+oldsongs = []
+with open("library.txt", encoding='utf-8') as file:
+    for line in file:
+        line = line.strip()
+        oldsongs.append(line)
 
-    f = open('library.txt', 'w', encoding='utf-8')
+# New library
 
-    for i in library:
-        f.write("{} artist: {} album: {} id: {}\n".format(str(i['title']), str(i['artist']), str(i['album']), str(i['id'])))
-
-    f.close()
+newsongs = []
+for i in library:
+    newsongs.append("{} artist: {} album: {} id: {}".format(str(i['title']), str(i['artist']), str(i['album']), str(i['id'])))
 
 def comp(old, new):
 
@@ -52,19 +55,16 @@ def comp(old, new):
         if val not in old:
             print('new song added: ' + val)
 
-# Old library
+def update():
 
-oldsongs = []
-with open("library.txt", encoding='utf-8') as file:
-    for line in file:
-        line = line.strip()
-        oldsongs.append(line)
+    # Overwrites existing library with new library
 
-# New library
+    f = open('library.txt', 'w', encoding='utf-8')
 
-newsongs = []
-for i in library:
-    newsongs.append("{} artist: {} album: {} id: {}".format(str(i['title']), str(i['artist']), str(i['album']), str(i['id'])))
+    for i in library:
+        f.write("{} artist: {} album: {} id: {}\n".format(str(i['title']), str(i['artist']), str(i['album']), str(i['id'])))
+
+    f.close()
 
 def main():
 
