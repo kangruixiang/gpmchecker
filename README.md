@@ -7,7 +7,7 @@ This script has been tested on Mac OS Sierra.
 
 ## Python
 
-Python 2 comes installed by default on Mac and needs to be updated to 3. To do so, headover to https://www.python.org/downloads/ and download the latest version. After you follow the instructions and install python, open up the Terminal and type "python3." You should see something similar to this:
+Python 2 comes installed by default on Mac and needs to be updated to 3. To do so, headover to https://www.python.org/downloads/ and download the latest version. After you follow the instructions and install python, open up the terminal and type "python3." You should see something similar to this:
 
 ```
 Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 08:49:46)
@@ -16,7 +16,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-
+The >>> indicates you are in python. But we don't want to do that. We are going to perform our script outside of python and in the terminal itself, so type "exit()" to go back to terminal. 
 
 ## Python modules
 
@@ -25,7 +25,7 @@ The following modules are required:
 - pickle
 - gmusicapi
 
-To install both, open up terminal/cmd and type:
+To install both, type the following in terminal:
 
 ```
   pip3 install pickle gmusicapi
@@ -33,7 +33,7 @@ To install both, open up terminal/cmd and type:
 
 # Usage
 
-To use, open up Terminal. Type "python3" and drag the script file into the terminal, follow that with your username and password. For example, say the script is in your Downloads folder, and your username is Bob and password hunter2, your terminal should look like this:
+To use, open up terminal and type "python3" and drag the script file into the terminal, follow that with your username and password. For example, say the script is in your Downloads folder, and your username is Bob and password hunter2, your terminal should look like this:
 
 ```
   python3 /Users/Bob/Downloads/gmusicchecker.py Bob hunter2
