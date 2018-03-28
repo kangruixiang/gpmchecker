@@ -3,40 +3,36 @@ import pickle
 import argparse
 import os
 
-def arguments():
-    """Adds arguments"""
 
-    # Adds arguments to command line
+"""Adds arguments"""
 
-    parser = argparse.ArgumentParser()
+# Adds arguments to command line
 
-    parser.add_argument('username', action='store',
-                        help='Stores username')
-    parser.add_argument('password', action='store',
-                        help='Stores password')
+parser = argparse.ArgumentParser()
 
-    authentication = parser.parse_args()
-    return authentication
+parser.add_argument('username', action='store',
+                    help='Stores username')
+parser.add_argument('password', action='store',
+                    help='Stores password')
 
-def client():
+authentication = parser.parse_args()
 
-    """Logs in and retrieves library"""
 
-    api = Mobileclient()
-    authenticated = arguments()
-    print(authenticated.username, authenticated.password)
-    logged_in = api.login(authenticated.username, authenticated.password, Mobileclient.FROM_MAC_ADDRESS)
+"""Logs in and retrieves library"""
 
-    library = api.get_all_songs()
+api = Mobileclient()
+logged_in = api.login(authentication.username, authentication.password, Mobileclient.FROM_MAC_ADDRESS)
 
-def library():
+library = api.get_all_songs()
 
-    """Creates the library.txt if not exist"""
 
-    if not os.path.exists('library.txt'):
-        f = open('library.txt', 'w')
-        f.close()
-        print('No library.txt found. Creating a new one.')
+
+"""Creates the library.txt if not exist"""
+
+if not os.path.exists('library.txt'):
+    f = open('library.txt', 'w')
+    f.close()
+    print('No library.txt found. Creating a new one.')
 
 def comp(old, new):
 
