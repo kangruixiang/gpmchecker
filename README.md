@@ -1,42 +1,47 @@
-# Overview
-This script checks your Google Music library for missing songs. At least for me, every few months I find songs missing from my library. It turns out that Google is constantly updating its catalog, and, in the process, removes older versions of songs from your library. However, it doesn't automatically add newer versions back to your library. This script creates a list of songs in your library on first run, and compares the original list and new list on subsequent runs to let you know which songs are missing.
+# Google Play Music to Spotify
 
-This script has been tested on Mac OS Sierra.
+This script generates a list of songs from your Google Play Music library so that you can export your library to spotify. The transfer process involves 2 steps:
 
-# Installation
+1. Generate a list of songs in your library via this script
+2. Import list into spotify using [PlaylistConverter](http://www.playlist-converter.net/#/).
 
-## Python
+This script has been forked from [cjbassi](https://github.com/cjbassi/gpm-library-checker)'s gpm library checker.
 
-Python 2 comes installed by default on Mac and needs to be updated to 3. To do so, headover to https://www.python.org/downloads/ and download the latest version. After you follow the instructions and install python, open up the terminal and type "python3." You should see something similar to this:
+# Generate list of songs
 
-```
-Python 3.5.3 (v3.5.3:1880cb95a742, Jan 16 2017, 08:49:46)
-[GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
-Type "help", "copyright", "credits" or "license" for more information.
->>>
-```
+## Installation
 
-The >>> indicates you are in python. But we don't want to do that. We are going to perform our script outside of python and in the terminal itself, so type "exit()" to go back to terminal. 
+Requires [gmusicapi](https://github.com/simon-weber/gmusicapi) which you can install using either virtualenv or with:
 
-## Python modules
-
-The following modules are required:
-
-- pickle
-- gmusicapi
-
-To install both, type the following in terminal:
-
-```
-  pip3 install pickle gmusicapi
+```sh
+pip3 install --user gmusicapi
 ```
 
-# Usage
+If you're getting an error about gmusicapi not being found after running the above command, then you need to configure your $PATH to support user installs. If you're on Linux (and possible OSX), you need to add:
 
-To use, open up terminal and type "python3" and drag the script file into the terminal, follow that with your username and password. For example, say the script is in your Downloads folder, and your username is Bob and password hunter2, your terminal should look like this:
-
-```
-  python3 /Users/Bob/Downloads/gmusicchecker.py Bob hunter2
+```sh
+export PATH=$PATH:~/.local/bin
 ```
 
-Press enter. The script will create a library.txt file on first run with a list of song names, albums, artist, and unique ID. On subsequent runs, the script will compare your current library to existing one in library.txt and list the missing songs as well as new songs added. This gives you a chance to re-add the missing songs manually in Google Music. Lastly, the script will ask if you want to update the library. This overwrites the original library.txt with the current one.
+to your shell config and reload your shell.
+
+
+## Usage
+
+First, `git clone` this repo:
+
+```sh
+git clone https://github.com/thisispiggy/gpmtospotify
+```
+
+Run the script with your Google email and password as command line arguments.
+
+```sh
+./path/to/script/gpmtospotify.py email password
+```
+
+The script will create a `gpm_library.json` file on first run. Open the library with a text editor other than notepad such as wordpad or Visual Studio Code. You should see a list of songs and artists.
+
+# Import to Spotify
+
+Head over to [PlaylistConverter](http://www.playlist-converter.net/#/) and paste your list of songs into the textbox. Click Convert and click on the Spotify option. The converter will connect to your spotify account and begin the importing process.
