@@ -11,10 +11,17 @@ This script has been forked from [cjbassi](https://github.com/cjbassi/gpm-librar
 
 ## Installation
 
+Make sure you have [python installed](https://realpython.com/installing-python/).
+
 Requires [gmusicapi](https://github.com/simon-weber/gmusicapi) which you can install using either virtualenv or with:
 
 ```sh
 pip3 install --user gmusicapi
+```
+
+Or on some systems you can use:
+```sh
+pip install --user gmusicapi
 ```
 
 If you're getting an error about gmusicapi not being found after running the above command, then you need to configure your $PATH to support user installs. If you're on Linux (and possible OSX), you need to add:
