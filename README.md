@@ -35,7 +35,7 @@ to your shell config and reload your shell.
 
 ## Usage
 
-First, `git clone` this repo:
+First, `cd` into the directory you want this script to be in. Then `git clone` this repo:
 
 ```sh
 git clone https://github.com/thisispiggy/gpmtospotify
