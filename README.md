@@ -34,7 +34,7 @@ to your shell config and reload your shell.
 
 ## Usage
 
-If you don't know much about github or running scripts, just download the doubleclick.py to somewhere on your computer and run it. It'll ask your username and password. 
+If you don't know much about github or running scripts, just download the doubleclick.py to somewhere on your computer and run it. It'll ask your username and password then. 
 
 First, `cd` into the directory you want this script to be in. Then `git clone` this repo:
 
