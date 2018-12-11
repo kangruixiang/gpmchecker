@@ -31,23 +31,10 @@ def file_write_json(filename, container):
     file.write(container)
     file.close()
 
-
-def parse_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('username', action='store',
-                        help='Stores username')
-    parser.add_argument('password', action='store',
-                        help='Stores password')
-    parser.add_argument('--playlist', action='store',
-                        help='Stores playlist')
-    return parser.parse_args()
-
-
 def authenticate(username, password):
     api = Mobileclient()
     api.login(username, password, Mobileclient.FROM_MAC_ADDRESS)
     return api
-
 
 def get_songs(library):
     """Returns a new library of songs that only include artist, song, and album"""
@@ -63,9 +50,9 @@ def get_playlists():
     api.get_all_playlists()
 
 def main():
-    args = parse_args()
-    username, password, playlist = args.username, args.password, args.playlist
-
+    username = input("Enter your Google username\n")
+    password = input("Enter your Google password\n")
+    
     api = authenticate(username, password)
     library = api.get_all_songs()
     playlists = api.get_all_user_playlist_contents()
