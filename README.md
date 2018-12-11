@@ -32,8 +32,9 @@ export PATH=$PATH:~/.local/bin
 
 to your shell config and reload your shell.
 
-
 ## Usage
+
+If you don't know much about github or running scripts, just download the doubleclick.py to somewhere on your computer and run it. It'll ask your username and password. 
 
 First, `cd` into the directory you want this script to be in. Then `git clone` this repo:
 
