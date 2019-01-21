@@ -30,12 +30,12 @@ def generaterandom(mylibrary):
 def removesongs():
     """removes old music"""
     playlists = G.get_all_user_playlist_contents()
-    randomplaylist = playlists[14]
-    if playlist in randomplaylist.values():
-        for song in randomplaylist["tracks"]:
-            G.remove_entries_from_playlist(song["id"])
-    else:
-        print("Playlist not in sync")
+    for randomplaylist in playlists:
+        if playlist in randomplaylist.values():
+            for song in randomplaylist["tracks"]:
+                G.remove_entries_from_playlist(song["id"])
+        else:
+            print("Skipping playlist, {}".format(randomplaylist["name"]))
 
 def addsongs(randomsong):
     """adding songs to playlist"""
