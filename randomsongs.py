@@ -24,7 +24,7 @@ def getlibrary():
 
 def generaterandom(mylibrary):
     """generates 150 random songs"""
-    randomsongs = random.sample(mylibrary, 150)
+    randomsongs = random.sample(mylibrary, 200)
     return randomsongs
 
 def removesongs():
