@@ -13,11 +13,8 @@ G = Mobileclient()
 
 def login():
     """logs in to gmusic"""
-    try:
-        G.oauth_login(Mobileclient.FROM_MAC_ADDRESS)
-    except: 
-        G.perform_oauth(storage_filepath="login.cred", open_browser=True)
-        G.oauth_login(Mobileclient.FROM_MAC_ADDRESS)
+    G.perform_oauth(open_browser=True)
+    G.oauth_login(Mobileclient.FROM_MAC_ADDRESS)
 
 def getlibrary():
     """get all songs from library"""
