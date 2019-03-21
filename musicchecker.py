@@ -13,7 +13,7 @@ G = Mobileclient()
 
 def login():
     """logs in to gmusic"""
-    G.perform_oauth(open_browser=True)
+    #G.perform_oauth(open_browser=True)
     G.oauth_login(Mobileclient.FROM_MAC_ADDRESS)
 
 def getlibrary():
